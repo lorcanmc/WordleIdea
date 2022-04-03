@@ -1,10 +1,17 @@
-import React from 'react'
-import styles from "./tile.module.css"
+import React from "react";
+import styles from "./tile.module.css";
 
 export default function Tile({ letter }) {
+
+
   return (
-    <div className={styles.tile}>
-        <p className={styles.letter}>{letter}</p>
+    <div
+      className={styles.tile}
+      style={{
+        border: letter ? "2px rgb(144, 144, 144) solid" : "2px rgb(204, 204, 204) solid",
+      }}
+    >
+      <p className={styles.letter}>{letter}</p>
     </div>
-  )
+  );
 }
