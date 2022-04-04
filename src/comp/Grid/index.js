@@ -1,17 +1,16 @@
-import React from 'react'
-import GridRow from '../GridRow'
+import React from "react";
+import GridRow from "../GridRow";
 
 export default function Grid({ gridFormatting }) {
-
+  console.log(gridFormatting);
   return (
-    <div className='grid'>
-        <GridRow rowFormatting={gridFormatting[0]} ></GridRow>
-        <GridRow rowFormatting={gridFormatting[1]} ></GridRow>
-        
-        {/* <GridRow text={currentGuess}></GridRow>
-        <GridRow text={currentGuess}></GridRow>
-        <GridRow text={currentGuess}></GridRow>
-        <GridRow text={currentGuess}></GridRow> */}
+    <div className="grid">
+      <GridRow rowFormatting={gridFormatting[0]}></GridRow>
+      <GridRow rowFormatting={gridFormatting[1]}></GridRow>
+      <GridRow rowFormatting={gridFormatting[2]}></GridRow>
+      <GridRow rowFormatting={gridFormatting[3]}></GridRow>
+      <GridRow rowFormatting={gridFormatting[4]}></GridRow>
+      <GridRow rowFormatting={gridFormatting[5]}></GridRow>
     </div>
-  )
+  );
 }

@@ -17,72 +17,18 @@ function App() {
   const [currentGuess, setCurrentGuess] = useState("");
   const [currentRow, setCurrentRow] = useState(0);
   const [currentTile, setCurrentTile] = useState(0);
-  const [gridFormatting, setGridFormatting] = useState([
-    [
-      {
-        letter: "",
-        color: "black",
-        borderColor: COLORS.lightGrey,
-        backgroundColor: "white",
-      },
-      {
-        letter: "",
-        color: "black",
-        borderColor: COLORS.lightGrey,
-        backgroundColor: "white",
-      },
-      {
-        letter: "",
-        color: "black",
-        borderColor: COLORS.lightGrey,
-        backgroundColor: "white",
-      },
-      {
-        letter: "",
-        color: "black",
-        borderColor: COLORS.lightGrey,
-        backgroundColor: "white",
-      },
-      {
-        letter: "",
-        color: "black",
-        borderColor: COLORS.lightGrey,
-        backgroundColor: "white",
-      },
-    ],
-    [
-      {
-        letter: "",
-        color: "black",
-        borderColor: COLORS.lightGrey,
-        backgroundColor: "white",
-      },
-      {
-        letter: "",
-        color: "black",
-        borderColor: COLORS.lightGrey,
-        backgroundColor: "white",
-      },
-      {
-        letter: "",
-        color: "black",
-        borderColor: COLORS.lightGrey,
-        backgroundColor: "white",
-      },
-      {
-        letter: "",
-        color: "black",
-        borderColor: COLORS.lightGrey,
-        backgroundColor: "white",
-      },
-      {
-        letter: "",
-        color: "black",
-        borderColor: COLORS.lightGrey,
-        backgroundColor: "white",
-      },
-    ],
-  ]);
+  const [gridFormatting, setGridFormatting] = useState(
+    Array(6)
+      .fill()
+      .map(() =>
+        Array(5).fill({
+          letter: "",
+          color: "black",
+          borderColor: COLORS.lightGrey,
+          backgroundColor: "white",
+        })
+      )
+  );
   console.log(gridFormatting);
 
   const handler = ({ key }) => {
@@ -132,8 +78,6 @@ function App() {
     let rowFormatting = [...gridFormatting[currentRow]];
     rowFormatting = rowFormatting.map((obj) => {
       return { ...obj, color: "white", borderColor: "transparent" };
-
-      return obj;
     });
     for (let i = 0; i < 5; i++) {
       if (rowFormatting[i].letter === dailyWord[i]) {
@@ -150,9 +94,10 @@ function App() {
       rowFormatting,
       ...gridFormatting.slice(currentRow + 1),
     ]);
-
     setCurrentTile(0);
-    setCurrentRow(currentRow + 1);
+    if (currentRow < 6) {
+      setCurrentRow(currentRow + 1);
+    }
   }
 
   useEventListener("keydown", handler);
