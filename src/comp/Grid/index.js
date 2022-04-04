@@ -2,7 +2,6 @@ import React from "react";
 import GridRow from "../GridRow";
 
 export default function Grid({ gridFormatting }) {
-  console.log(gridFormatting);
   return (
     <div className="grid">
       <GridRow rowFormatting={gridFormatting[0]}></GridRow>

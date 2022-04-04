@@ -14,8 +14,8 @@ const COLORS = {
 };
 
 function App() {
+  const [completed, setCompleted] = useState(false);
   const [dailyWord] = useState("TIGER");
-  // const [currentGuess, setCurrentGuess] = useState("");
   const [currentRow, setCurrentRow] = useState(0);
   const [currentTile, setCurrentTile] = useState(0);
   const [gridFormatting, setGridFormatting] = useState(
@@ -30,7 +30,6 @@ function App() {
         })
       )
   );
-  console.log(gridFormatting);
 
   const handler = ({ key }) => {
     const keyPressed = String(key.toUpperCase());
@@ -96,9 +95,8 @@ function App() {
       ...gridFormatting.slice(currentRow + 1),
     ]);
 
-    if (rowFormatting.every((tile) => (tile.backgroundColor = COLORS.green))) {
-      console.log("correct")
-      alert("CORRECT")
+    if (rowFormatting.every((tile) => tile.backgroundColor === COLORS.green)) {
+      setCompleted(true);
     }
 
     setCurrentTile(0);
@@ -117,6 +115,7 @@ function App() {
       </div>
 
       <Grid gridFormatting={gridFormatting}></Grid>
+      {completed ? <p className="successmessage">CONGRATULATIONS</p> : <></>}
     </div>
   );
 }

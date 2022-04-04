@@ -39,3 +39,9 @@
   left: 35%;
   padding: 20px;
 }
+
+.successmessage {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+}
