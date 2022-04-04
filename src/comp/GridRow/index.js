@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Tile from "../Tile";
 
 export default function GridRow({ rowFormatting }) {
