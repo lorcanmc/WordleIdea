@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header className="App-header">
       <h1>ANIMLE</h1>
-      <SimpleModal></SimpleModal>
+      
     </header>
   );
 }

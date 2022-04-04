@@ -11,9 +11,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.modalcontainer {
+  margin: 30px;
+}
 
 .grid {
-  margin: 20vh auto;
+  margin: 5vh auto;
 
   /* border: 1px black solid; */
   display: flex;
@@ -29,8 +32,10 @@
 .modal {
   position:absolute;
   background-color: white;
-  width: 400px;
+  width: 40%;
   display: 'flex';
   align-items: 'center';
   justify-content: 'center';
+  top: 50%;
+  left: 30%;
 }

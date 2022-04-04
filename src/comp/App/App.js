@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEventListener } from "../../hooks/index.js";
 import Grid from "../Grid";
 import Header from "../Header";
+import SimpleModal from "../Modal/index.js";
 import "./App.css";
 
 const COLORS = {
@@ -105,6 +106,10 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
+      <div className="modalcontainer">
+        <SimpleModal></SimpleModal>
+      </div>
+      
       <Grid gridFormatting={gridFormatting}></Grid>
     </div>
   );
