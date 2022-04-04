@@ -14,8 +14,8 @@ const COLORS = {
 };
 
 function App() {
-  const [dailyWord, setDailyWord] = useState("TIGER");
-  const [currentGuess, setCurrentGuess] = useState("");
+  const [dailyWord] = useState("TIGER");
+  // const [currentGuess, setCurrentGuess] = useState("");
   const [currentRow, setCurrentRow] = useState(0);
   const [currentTile, setCurrentTile] = useState(0);
   const [gridFormatting, setGridFormatting] = useState(
