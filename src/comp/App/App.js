@@ -95,6 +95,12 @@ function App() {
       rowFormatting,
       ...gridFormatting.slice(currentRow + 1),
     ]);
+
+    if (rowFormatting.every((tile) => (tile.backgroundColor = COLORS.green))) {
+      console.log("correct")
+      alert("CORRECT")
+    }
+
     setCurrentTile(0);
     if (currentRow < 6) {
       setCurrentRow(currentRow + 1);
@@ -109,7 +115,7 @@ function App() {
       <div className="modalcontainer">
         <SimpleModal></SimpleModal>
       </div>
-      
+
       <Grid gridFormatting={gridFormatting}></Grid>
     </div>
   );

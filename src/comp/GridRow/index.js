@@ -1,7 +1,6 @@
 import Tile from "../Tile";
 
 export default function GridRow({ rowFormatting }) {
-  console.log(rowFormatting);
   return (
     <div className="gridrow">
       <Tile tileFormatting={rowFormatting[0]}></Tile>
