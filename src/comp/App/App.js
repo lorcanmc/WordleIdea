@@ -5,45 +5,154 @@ import Grid from "../Grid";
 import Header from "../Header";
 import "./App.css";
 
+const COLORS = {
+  lightGrey: "rgb(204, 204, 204)",
+  darkGrey: "rgb(144, 144, 144)",
+  yellow: "rgb(212, 182, 32)",
+  green: "rgb(80, 171, 92)",
+};
+
 function App() {
   const [dailyWord, setDailyWord] = useState("TIGER");
   const [currentGuess, setCurrentGuess] = useState("");
-  const [backgroundColor, setBackgroundColor] = useState(["white", "white", "white", "white", "white"]);
-  const [currentRow, setCurrentRow] = useState(1);
+  const [currentRow, setCurrentRow] = useState(0);
+  const [currentTile, setCurrentTile] = useState(0);
+  const [gridFormatting, setGridFormatting] = useState([
+    [
+      {
+        letter: "",
+        color: "black",
+        borderColor: COLORS.lightGrey,
+        backgroundColor: "white",
+      },
+      {
+        letter: "",
+        color: "black",
+        borderColor: COLORS.lightGrey,
+        backgroundColor: "white",
+      },
+      {
+        letter: "",
+        color: "black",
+        borderColor: COLORS.lightGrey,
+        backgroundColor: "white",
+      },
+      {
+        letter: "",
+        color: "black",
+        borderColor: COLORS.lightGrey,
+        backgroundColor: "white",
+      },
+      {
+        letter: "",
+        color: "black",
+        borderColor: COLORS.lightGrey,
+        backgroundColor: "white",
+      },
+    ],
+    [
+      {
+        letter: "",
+        color: "black",
+        borderColor: COLORS.lightGrey,
+        backgroundColor: "white",
+      },
+      {
+        letter: "",
+        color: "black",
+        borderColor: COLORS.lightGrey,
+        backgroundColor: "white",
+      },
+      {
+        letter: "",
+        color: "black",
+        borderColor: COLORS.lightGrey,
+        backgroundColor: "white",
+      },
+      {
+        letter: "",
+        color: "black",
+        borderColor: COLORS.lightGrey,
+        backgroundColor: "white",
+      },
+      {
+        letter: "",
+        color: "black",
+        borderColor: COLORS.lightGrey,
+        backgroundColor: "white",
+      },
+    ],
+  ]);
+  console.log(gridFormatting);
 
   const handler = ({ key }) => {
     const keyPressed = String(key.toUpperCase());
 
     if (
-      currentGuess.length < 5 &&
+      currentTile < 5 &&
       keyPressed.length === 1 &&
       keyPressed.charCodeAt(0) >= 65 &&
       keyPressed.charCodeAt(0) <= 90
     ) {
-      setCurrentGuess(currentGuess + keyPressed);
+      setGridFormatting([
+        ...gridFormatting.slice(0, currentRow),
+        [
+          ...gridFormatting[currentRow].slice(0, currentTile),
+          {
+            ...gridFormatting[currentRow][currentTile],
+            letter: keyPressed,
+            borderColor: COLORS.darkGrey,
+          },
+          ...gridFormatting[currentRow].slice(currentTile + 1),
+        ],
+        ...gridFormatting.slice(currentRow + 1),
+      ]);
+      setCurrentTile(currentTile + 1);
     } else if (keyPressed === "BACKSPACE") {
-      setCurrentGuess(currentGuess.slice(0, currentGuess.length - 1));
-    } else if (keyPressed === "ENTER" && currentGuess.length === dailyWord.length) {
+      setGridFormatting([
+        ...gridFormatting.slice(0, currentRow),
+        [
+          ...gridFormatting[currentRow].slice(0, currentTile - 1),
+          {
+            ...gridFormatting[currentRow][currentTile],
+            letter: "",
+            borderColor: COLORS.lightGrey,
+          },
+          ...gridFormatting[currentRow].slice(currentTile),
+        ],
+        ...gridFormatting.slice(currentRow + 1),
+      ]);
+      setCurrentTile(currentTile - 1);
+    } else if (keyPressed === "ENTER" && currentTile === 5) {
       checkWord();
-      console.log("check")
     }
   };
 
   function checkWord() {
-    let arr = []
-    for (let i = 0; i < currentGuess.length; i++) {
-      if(currentGuess[i] === dailyWord[i]) {
-        arr.push("rgb(80, 171, 92)")
-      } else if(dailyWord.includes(currentGuess[i])) {
-        arr.push("rgb(212, 182, 32)")
+    let rowFormatting = [...gridFormatting[currentRow]];
+    rowFormatting = rowFormatting.map((obj) => {
+      return { ...obj, color: "white", borderColor: "transparent" };
+
+      return obj;
+    });
+    for (let i = 0; i < 5; i++) {
+      if (rowFormatting[i].letter === dailyWord[i]) {
+        rowFormatting[i].backgroundColor = COLORS.green;
+      } else if (dailyWord.includes(rowFormatting[i].letter)) {
+        rowFormatting[i].backgroundColor = COLORS.yellow;
       } else {
-        arr.push("rgb(144, 144, 144)")
+        rowFormatting[i].backgroundColor = COLORS.darkGrey;
       }
     }
-    console.log(arr)
-    setBackgroundColor(arr)
-    setCurrentRow(currentRow+1)
-   
+
+    setGridFormatting([
+      ...gridFormatting.slice(0, currentRow),
+      rowFormatting,
+      ...gridFormatting.slice(currentRow + 1),
+    ]);
+
+    setCurrentTile(0);
+    setCurrentRow(currentRow + 1);
   }
 
   useEventListener("keydown", handler);
@@ -51,11 +160,7 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <Grid
-        currentGuess={currentGuess}
-        dailyWord={dailyWord}
-        backgroundColor={backgroundColor}
-      ></Grid>
+      <Grid gridFormatting={gridFormatting}></Grid>
     </div>
   );
 }
