@@ -3,11 +3,12 @@ import { useState } from "react";
 import { useEventListener } from "../../hooks/index.js";
 import Grid from "../Grid";
 import Header from "../Header";
+import Keyboard from "../Keyboard/index.js";
 import SimpleModal from "../Modal/index.js";
 import "./App.css";
 
 const COLORS = {
-  lightGrey: "rgb(204, 204, 204)",
+  lightGrey: "rgb(220, 220, 220)",
   darkGrey: "rgb(144, 144, 144)",
   yellow: "rgb(212, 182, 32)",
   green: "rgb(80, 171, 92)",
@@ -31,14 +32,13 @@ function App() {
       )
   );
 
-  const handler = ({ key }) => {
+  const handler = (key) => {
     const keyPressed = String(key.toUpperCase());
-
     if (
-      currentTile < 5 &&
-      keyPressed.length === 1 &&
       keyPressed.charCodeAt(0) >= 65 &&
-      keyPressed.charCodeAt(0) <= 90
+      keyPressed.charCodeAt(0) <= 90 &&
+      currentTile < 5 &&
+      keyPressed.length === 1
     ) {
       setGridFormatting([
         ...gridFormatting.slice(0, currentRow),
@@ -54,7 +54,7 @@ function App() {
         ...gridFormatting.slice(currentRow + 1),
       ]);
       setCurrentTile(currentTile + 1);
-    } else if (keyPressed === "BACKSPACE") {
+    } else if (keyPressed === "BACKSPACE" && currentTile >= 1) {
       setGridFormatting([
         ...gridFormatting.slice(0, currentRow),
         [
@@ -105,17 +105,18 @@ function App() {
     }
   }
 
-  useEventListener("keydown", handler);
+  useEventListener("keydown", (e) => handler(e.key));
 
   return (
     <div className="App">
-      <Header></Header>
+      <Header />
       <div className="modalcontainer">
-        <SimpleModal></SimpleModal>
+        <SimpleModal />
       </div>
 
-      <Grid gridFormatting={gridFormatting}></Grid>
+      <Grid gridFormatting={gridFormatting} />
       {completed ? <p className="successmessage">CONGRATULATIONS</p> : <></>}
+      <Keyboard handler={handler} />
     </div>
   );
 }

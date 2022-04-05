@@ -45,3 +45,27 @@
   font-size: 30px;
   font-weight: 700;
 }
+
+.keyboard {
+  margin: 0 auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.keyboardrow {
+  display: flex;
+  flex-direction: row;
+}
+
+.keyboardletter {
+  margin: 4px;
+  padding: 20px 15px;
+  font-family: monospace;
+  font-size: 20px;
+  border: none;
+  background-color: rgb(220, 220, 220);
+  border-radius: 5px;
+  cursor: pointer;
+}
