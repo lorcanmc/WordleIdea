@@ -54,7 +54,7 @@ function App() {
         ...gridFormatting.slice(currentRow + 1),
       ]);
       setCurrentTile(currentTile + 1);
-    } else if ((keyPressed === "BACKSPACE" || keyPressed === "BaCK") && currentTile >= 1) {
+    } else if ((keyPressed === "BACKSPACE" || keyPressed === "BACK") && currentTile >= 1) {
       setGridFormatting([
         ...gridFormatting.slice(0, currentRow),
         [
