@@ -16,7 +16,7 @@ const COLORS = {
 
 function App() {
   const [completed, setCompleted] = useState(false);
-  const [dailyWord] = useState("TIGER");
+  const [dailyWord] = useState("OTTER");
   const [currentRow, setCurrentRow] = useState(0);
   const [currentTile, setCurrentTile] = useState(0);
   const [gridFormatting, setGridFormatting] = useState(
@@ -54,7 +54,7 @@ function App() {
         ...gridFormatting.slice(currentRow + 1),
       ]);
       setCurrentTile(currentTile + 1);
-    } else if (keyPressed === "BACKSPACE" && currentTile >= 1) {
+    } else if ((keyPressed === "BACKSPACE" || keyPressed === "BaCK") && currentTile >= 1) {
       setGridFormatting([
         ...gridFormatting.slice(0, currentRow),
         [

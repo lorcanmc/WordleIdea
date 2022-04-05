@@ -36,7 +36,7 @@ export default function Keyboard({ handler }) {
             <KeyboardLetter text="B" handler={handler} />
             <KeyboardLetter text="N" handler={handler} />
             <KeyboardLetter text="M" handler={handler} />
-            <KeyboardLetter text="BACKSPACE" handler={handler} />
+            <KeyboardLetter text="BACK" handler={handler} />
         </div>
     </div>
   )
