@@ -6,9 +6,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  font-size: calc(5px + 2vmin);
+  font-size: calc(3px + 2vmin);
   color: white;
-  height: 8vh;
+  height: 6vh;
 }
 
 .modalcontainer {
@@ -16,9 +16,9 @@
 }
 
 .map {
-  margin: 3vh auto;
+  margin: 2vh auto;
   width: 90%;
-  max-width: 500px;
+  max-width: 450px;
 }
 
 img {
@@ -27,7 +27,7 @@ img {
 }
 
 .grid {
-  margin: 3vh auto;
+  margin: 2vh auto;
   /* border: 1px black solid; */
   display: flex;
   flex-direction: column;
@@ -58,7 +58,7 @@ img {
 }
 
 .keyboard {
-  margin: 0 auto;
+  margin: 3vh auto;
   width: fit-content;
   display: flex;
   flex-direction: column;
@@ -85,7 +85,7 @@ img {
   .keyboardletter {
     margin: 3px;
     padding: 10px 8px;
-    font-size: 20px;
+    font-size: 18px;
   }
 
 }
