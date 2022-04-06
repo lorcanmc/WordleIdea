@@ -5,6 +5,7 @@ import Grid from "../Grid";
 import Header from "../Header";
 import Keyboard from "../Keyboard/index.js";
 import SimpleModal from "../Modal/index.js";
+import map from "../../images/maps/Camel.png";
 import "./App.css";
 
 const COLORS = {
@@ -16,7 +17,7 @@ const COLORS = {
 
 function App() {
   const [completed, setCompleted] = useState(false);
-  const [dailyWord] = useState("OTTER");
+  const [dailyWord] = useState("CAMEL");
   const [currentRow, setCurrentRow] = useState(0);
   const [currentTile, setCurrentTile] = useState(0);
   const [gridFormatting, setGridFormatting] = useState(
@@ -30,6 +31,9 @@ function App() {
           backgroundColor: "white",
         })
       )
+  );
+  const [keyboardColors, setKeyboardColors] = useState(
+    Array(26).fill(COLORS.lightGrey)
   );
 
   const handler = (key) => {
@@ -54,7 +58,10 @@ function App() {
         ...gridFormatting.slice(currentRow + 1),
       ]);
       setCurrentTile(currentTile + 1);
-    } else if ((keyPressed === "BACKSPACE" || keyPressed === "BACK") && currentTile >= 1) {
+    } else if (
+      (keyPressed === "BACKSPACE" || keyPressed === "BACK") &&
+      currentTile >= 1
+    ) {
       setGridFormatting([
         ...gridFormatting.slice(0, currentRow),
         [
@@ -80,12 +87,18 @@ function App() {
       return { ...obj, color: "white", borderColor: "transparent" };
     });
     for (let i = 0; i < 5; i++) {
+      const alphabetPos = rowFormatting[i].letter.charCodeAt(0) - 65;
       if (rowFormatting[i].letter === dailyWord[i]) {
         rowFormatting[i].backgroundColor = COLORS.green;
+        keyboardColors[alphabetPos] = COLORS.green;
       } else if (dailyWord.includes(rowFormatting[i].letter)) {
         rowFormatting[i].backgroundColor = COLORS.yellow;
+        if (keyboardColors[alphabetPos] != COLORS.green) {
+          keyboardColors[alphabetPos] = COLORS.yellow;
+        }
       } else {
         rowFormatting[i].backgroundColor = COLORS.darkGrey;
+        keyboardColors[alphabetPos] = COLORS.darkGrey;
       }
     }
 
@@ -110,13 +123,13 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="modalcontainer">
-        <SimpleModal />
+      <div className="map">
+        <img src={map} alt="map" />
       </div>
 
       <Grid gridFormatting={gridFormatting} />
       {completed ? <p className="successmessage">CONGRATULATIONS</p> : <></>}
-      <Keyboard handler={handler} />
+      <Keyboard handler={handler} keyboardColors={keyboardColors} />
     </div>
   );
 }

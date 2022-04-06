@@ -24,7 +24,6 @@ export default function SimpleModal() {
         onClose={handleClose}
       >
         <div className="modal">
-          <div></div>
           <p>
             Guess the <b>animal</b> in 6 tries
           </p>
@@ -33,6 +32,8 @@ export default function SimpleModal() {
             After each guess the color of the tiles will change to show you how
             close your guess was to the animal name
           </p>
+          <hr></hr>
+          {/* <p><b>Examples:</b></p> */}
         </div>
       </Modal>
     </div>
