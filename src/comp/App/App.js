@@ -16,6 +16,7 @@ const COLORS = {
 
 function App() {
   const [completed, setCompleted] = useState(false);
+  const [failed, setFailed] = useState(false);
   const [dailyWord] = useState("CAMEL");
   const [currentRow, setCurrentRow] = useState(0);
   const [currentTile, setCurrentTile] = useState(0);
@@ -109,6 +110,8 @@ function App() {
 
     if (rowFormatting.every((tile) => tile.backgroundColor === COLORS.green)) {
       setCompleted(true);
+    } else if(currentRow === 5) {
+      setFailed(true)
     }
 
     setCurrentTile(0);
@@ -128,6 +131,7 @@ function App() {
 
       <Grid gridFormatting={gridFormatting} />
       {completed ? <p className="successmessage">CONGRATULATIONS</p> : <></>}
+      {failed ? <p className="successmessage">Unlucky, the answer was {dailyWord}</p> : <></>}
       <Keyboard handler={handler} keyboardColors={keyboardColors} />
     </div>
   );
