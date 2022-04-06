@@ -14,8 +14,8 @@ export default function SimpleModal() {
   };
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={handleOpen}>
-        Instructions
+      <Button variant="contained" onClick={handleOpen}>
+        ?
       </Button>
       <Modal
         aria-labelledby="simple-modal-title"
