@@ -24,6 +24,7 @@ export default function SimpleModal() {
         onClose={handleClose}
       >
         <div className="modal">
+          <p>You are shown an animals global habitat</p>
           <p>
             Guess the <b>animal</b> in 6 tries
           </p>
