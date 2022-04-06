@@ -28,7 +28,7 @@ export default function Keyboard({ handler, keyboardColors }) {
             <KeyboardLetter text="L" handler={handler} backgroundColor={keyboardColors[11]}/>
         </div>
         <div className='keyboardrow'>
-            <KeyboardLetter text="ENTER" handler={handler} backgroundColor="rgb(220, 220, 220)" />
+            <KeyboardLetter text="ENT" handler={handler} backgroundColor="rgb(80, 171, 92)" />
             <KeyboardLetter text="Z" handler={handler} backgroundColor={keyboardColors[25]}/>
             <KeyboardLetter text="X" handler={handler} backgroundColor={keyboardColors[23]}/>
             <KeyboardLetter text="C" handler={handler} backgroundColor={keyboardColors[2]}/>
@@ -36,7 +36,7 @@ export default function Keyboard({ handler, keyboardColors }) {
             <KeyboardLetter text="B" handler={handler} backgroundColor={keyboardColors[1]}/>
             <KeyboardLetter text="N" handler={handler} backgroundColor={keyboardColors[13]}/>
             <KeyboardLetter text="M" handler={handler} backgroundColor={keyboardColors[12]}/>
-            <KeyboardLetter text="BACK" handler={handler} backgroundColor="rgb(220, 220, 220)" />
+            <KeyboardLetter text="BCK" handler={handler} backgroundColor="rgb(220, 220, 220)" />
         </div>
     </div>
   )

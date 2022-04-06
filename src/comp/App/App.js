@@ -58,7 +58,7 @@ function App() {
       ]);
       setCurrentTile(currentTile + 1);
     } else if (
-      (keyPressed === "BACKSPACE" || keyPressed === "BACK") &&
+      (keyPressed === "BACKSPACE" || keyPressed === "BCK") &&
       currentTile >= 1
     ) {
       setGridFormatting([
@@ -75,7 +75,7 @@ function App() {
         ...gridFormatting.slice(currentRow + 1),
       ]);
       setCurrentTile(currentTile - 1);
-    } else if (keyPressed === "ENTER" && currentTile === 5) {
+    } else if ((keyPressed === "ENTER"|| keyPressed === "ENT") && currentTile === 5) {
       checkWord();
     }
   };
