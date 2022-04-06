@@ -92,7 +92,7 @@ function App() {
         keyboardColors[alphabetPos] = COLORS.green;
       } else if (dailyWord.includes(rowFormatting[i].letter)) {
         rowFormatting[i].backgroundColor = COLORS.yellow;
-        if (keyboardColors[alphabetPos] != COLORS.green) {
+        if (keyboardColors[alphabetPos] !== COLORS.green) {
           keyboardColors[alphabetPos] = COLORS.yellow;
         }
       } else {
