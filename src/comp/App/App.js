@@ -4,7 +4,6 @@ import { useEventListener } from "../../hooks/index.js";
 import Grid from "../Grid";
 import Header from "../Header";
 import Keyboard from "../Keyboard/index.js";
-import SimpleModal from "../Modal/index.js";
 import map from "../../images/maps/Camel.png";
 import "./App.css";
 
@@ -32,7 +31,7 @@ function App() {
         })
       )
   );
-  const [keyboardColors, setKeyboardColors] = useState(
+  const [keyboardColors] = useState(
     Array(26).fill(COLORS.lightGrey)
   );
 
