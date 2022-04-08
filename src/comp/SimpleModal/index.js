@@ -3,8 +3,6 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 
 export default function SimpleModal() {
-  // const classes = useStyles();
-  // const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -14,7 +12,7 @@ export default function SimpleModal() {
   };
   return (
     <div>
-      <Button variant="contained" onClick={handleOpen}>
+      <Button style={{backgroundColor: "rgb(80, 171, 92)"}} variant="contained" onClick={handleOpen}>
         ?
       </Button>
       <Modal

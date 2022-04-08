@@ -26,8 +26,10 @@ const ANIMALS = [
   { name: "MOOSE", image: moose },
 ];
 
+const animalID = 2
+
 function App() {
-  const dailyData = { word: ANIMALS[1].name, image: ANIMALS[1].image };
+  const dailyData = { word: ANIMALS[animalID].name, image: ANIMALS[animalID].image };
   const [completed, setCompleted] = useState(false);
   const [failed, setFailed] = useState(false);
   const [currentRow, setCurrentRow] = useState(0);
