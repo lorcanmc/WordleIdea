@@ -4,7 +4,7 @@ import { useEventListener } from "../../hooks/index.js";
 import Grid from "../Grid";
 import Header from "../Header";
 import Keyboard from "../Keyboard/index.js";
-import camel from "../../images/maps/camel.png";
+// import camel from "../../images/maps/camel.png";
 import tiger from "../../images/maps/tiger.png";
 import koala from "../../images/maps/koala.jpg";
 import llama from "../../images/maps/llama.png";
@@ -19,14 +19,14 @@ const COLORS = {
 };
 
 const ANIMALS = [
-  { name: "CAMEL", image: camel },
+  // { name: "CAMEL", image: camel },
   { name: "TIGER", image: tiger },
   { name: "KOALA", image: koala },
   { name: "LLAMA", image: llama },
   { name: "MOOSE", image: moose },
 ];
 
-const animalID = 2
+const animalID = 0
 
 function App() {
   const dailyData = { word: ANIMALS[animalID].name, image: ANIMALS[animalID].image };
