@@ -1,14 +1,19 @@
 
-
 .App-header {
-  background-color: #096e00;
+  background-color: #ffffff;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
   font-size: calc(3px + 2vmin);
   color: white;
-  height: 6vh;
+  height: 8vh;
+  min-height: 50px;
+  border-bottom: 2px rgb(220, 220, 220) solid;
+}
+
+.logo {
+    /* border: black 1px solid; */
 }
 
 .modalcontainer {
@@ -28,7 +33,6 @@ img {
 
 .grid {
   margin: 2vh auto;
-  /* border: 1px black solid; */
   display: flex;
   flex-direction: column;
   width: fit-content;

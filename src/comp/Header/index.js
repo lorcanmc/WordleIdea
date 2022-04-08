@@ -1,17 +1,17 @@
-import React from "react";
 import SimpleModal from "../SimpleModal";
+
+import logo from "../../images/logo.png";
 
 export default function Header() {
   return (
-    <header className="App-header">
-
-      <div className="modalcontainer"></div>
-      <h1>ANIMLE</h1>
-      <div className="modalcontainer">
-        <SimpleModal />
-      </div>
-
-      
-    </header>
+    <div>
+      <header className="App-header">
+        <div className="modalcontainer"></div>
+        <img className="logo" src={logo} alt="animle" />
+        <div className="modalcontainer">
+          <SimpleModal />
+        </div>
+      </header>
+    </div>
   );
 }

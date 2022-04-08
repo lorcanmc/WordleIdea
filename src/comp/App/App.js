@@ -4,7 +4,11 @@ import { useEventListener } from "../../hooks/index.js";
 import Grid from "../Grid";
 import Header from "../Header";
 import Keyboard from "../Keyboard/index.js";
-import map from "../../images/maps/Camel.png";
+import camel from "../../images/maps/camel.png";
+import tiger from "../../images/maps/tiger.png";
+import koala from "../../images/maps/koala.jpg";
+import llama from "../../images/maps/llama.png";
+import moose from "../../images/maps/moose.png";
 import "./App.css";
 
 const COLORS = {
@@ -14,10 +18,18 @@ const COLORS = {
   green: "rgb(80, 171, 92)",
 };
 
+const ANIMALS = [
+  { name: "CAMEL", image: camel },
+  { name: "TIGER", image: tiger },
+  { name: "KOALA", image: koala },
+  { name: "LLAMA", image: llama },
+  { name: "MOOSE", image: moose },
+];
+
 function App() {
+  const dailyData = { word: ANIMALS[1].name, image: ANIMALS[1].image };
   const [completed, setCompleted] = useState(false);
   const [failed, setFailed] = useState(false);
-  const [dailyWord] = useState("CAMEL");
   const [currentRow, setCurrentRow] = useState(0);
   const [currentTile, setCurrentTile] = useState(0);
   const [gridFormatting, setGridFormatting] = useState(
@@ -32,11 +44,10 @@ function App() {
         })
       )
   );
-  const [keyboardColors] = useState(
-    Array(26).fill(COLORS.lightGrey)
-  );
+  const [keyboardColors] = useState(Array(26).fill(COLORS.lightGrey));
 
   const handler = (key) => {
+    if(completed) return;
     const keyPressed = String(key.toUpperCase());
     if (
       keyPressed.charCodeAt(0) >= 65 &&
@@ -76,7 +87,10 @@ function App() {
         ...gridFormatting.slice(currentRow + 1),
       ]);
       setCurrentTile(currentTile - 1);
-    } else if ((keyPressed === "ENTER"|| keyPressed === "ENT") && currentTile === 5) {
+    } else if (
+      (keyPressed === "ENTER" || keyPressed === "ENT") &&
+      currentTile === 5
+    ) {
       checkWord();
     }
   };
@@ -86,6 +100,7 @@ function App() {
     rowFormatting = rowFormatting.map((obj) => {
       return { ...obj, color: "white", borderColor: "transparent" };
     });
+    const dailyWord = dailyData.word;
     for (let i = 0; i < 5; i++) {
       const alphabetPos = rowFormatting[i].letter.charCodeAt(0) - 65;
       if (rowFormatting[i].letter === dailyWord[i]) {
@@ -110,8 +125,8 @@ function App() {
 
     if (rowFormatting.every((tile) => tile.backgroundColor === COLORS.green)) {
       setCompleted(true);
-    } else if(currentRow === 5) {
-      setFailed(true)
+    } else if (currentRow === 5) {
+      setFailed(true);
     }
 
     setCurrentTile(0);
@@ -126,12 +141,18 @@ function App() {
     <div className="App">
       <Header />
       <div className="map">
-        <img src={map} alt="map" />
+        <img src={dailyData.image} alt="map" />
       </div>
 
       <Grid gridFormatting={gridFormatting} />
       {completed ? <p className="successmessage">CONGRATULATIONS</p> : <></>}
-      {failed ? <p className="successmessage">Unlucky, the answer was {dailyWord}</p> : <></>}
+      {failed ? (
+        <p className="successmessage">
+          Unlucky, the answer was {dailyData.word}
+        </p>
+      ) : (
+        <></>
+      )}
       <Keyboard handler={handler} keyboardColors={keyboardColors} />
     </div>
   );
