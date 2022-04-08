@@ -26,7 +26,7 @@ const ANIMALS = [
   { name: "MOOSE", image: moose },
 ];
 
-const animalID = 0
+const animalID = Math.floor(Math.random()*ANIMALS.length)
 
 function App() {
   const dailyData = { word: ANIMALS[animalID].name, image: ANIMALS[animalID].image };
