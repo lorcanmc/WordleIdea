@@ -36,7 +36,7 @@ export default function Keyboard({ handler, keyboardColors }) {
             <KeyboardLetter text="B" handler={handler} backgroundColor={keyboardColors[1]}/>
             <KeyboardLetter text="N" handler={handler} backgroundColor={keyboardColors[13]}/>
             <KeyboardLetter text="M" handler={handler} backgroundColor={keyboardColors[12]}/>
-            <KeyboardLetter text="BCK" handler={handler} backgroundColor="rgb(220, 220, 220)" />
+            <KeyboardLetter text="BCK" handler={handler} backgroundColor="#fc3e3e" />
         </div>
     </div>
   )

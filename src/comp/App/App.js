@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import en from "dictionary-en";
 
 import { useEventListener } from "../../hooks/index.js";
 import Grid from "../Grid";
@@ -26,10 +27,13 @@ const ANIMALS = [
   { name: "MOOSE", image: moose },
 ];
 
-const animalID = Math.floor(Math.random()*ANIMALS.length)
+const animalID = Math.floor(Math.random() * ANIMALS.length);
 
 function App() {
-  const dailyData = { word: ANIMALS[animalID].name, image: ANIMALS[animalID].image };
+  const dailyData = {
+    word: ANIMALS[animalID].name,
+    image: ANIMALS[animalID].image,
+  };
   const [completed, setCompleted] = useState(false);
   const [failed, setFailed] = useState(false);
   const [currentRow, setCurrentRow] = useState(0);
@@ -49,7 +53,7 @@ function App() {
   const [keyboardColors] = useState(Array(26).fill(COLORS.lightGrey));
 
   const handler = (key) => {
-    if(completed) return;
+    if (completed) return;
     const keyPressed = String(key.toUpperCase());
     if (
       keyPressed.charCodeAt(0) >= 65 &&
