@@ -12,6 +12,8 @@ import llama from "../../images/maps/llama.png";
 import moose from "../../images/maps/moose.png";
 import "./App.css";
 
+console.log(Date.now())
+
 const COLORS = {
   lightGrey: "rgb(220, 220, 220)",
   darkGrey: "rgb(144, 144, 144)",
