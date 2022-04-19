@@ -5,12 +5,13 @@ import { useEventListener } from "../../hooks/index.js";
 import Grid from "../Grid";
 import Header from "../Header";
 import Keyboard from "../Keyboard/index.js";
-// import camel from "../../images/maps/camel.png";
+import camel from "../../images/maps/camel.png";
 import tiger from "../../images/maps/tiger.png";
 import koala from "../../images/maps/koala.jpg";
 import llama from "../../images/maps/llama.png";
 import moose from "../../images/maps/moose.png";
 import zebra from "../../images/maps/zebra.webp";
+import hippo from "../../images/maps/hippo.webp";
 import "./App.css";
 import CompletedContainer from "../CompletedContainer/index.js";
 
@@ -28,6 +29,7 @@ const ANIMALS = [
   // { name: "LLAMA", image: llama },
   // { name: "MOOSE", image: moose },
   { name: "ZEBRA", image: zebra },
+  // { name: "HIPPO", image: hippo },
 ];
 
 const animalID = Math.floor(Math.random() * ANIMALS.length);

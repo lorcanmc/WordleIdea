@@ -42,12 +42,13 @@ img {
 .modal {
   position:absolute;
   background-color: white;
-  width: 80%;
+  /* max-width: 800px; */
+  width: 70%;
   display: 'flex';
   align-items: 'center';
   justify-content: 'center';
-  top: 30%;
-  margin: 0 10%;
+  top: 10%;
+  margin: 0 15%;
   padding: 20px;
 }
 
