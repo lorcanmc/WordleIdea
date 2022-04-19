@@ -10,6 +10,7 @@ import tiger from "../../images/maps/tiger.png";
 import koala from "../../images/maps/koala.jpg";
 import llama from "../../images/maps/llama.png";
 import moose from "../../images/maps/moose.png";
+import zebra from "../../images/maps/zebra.webp";
 import "./App.css";
 
 const COLORS = {
@@ -25,6 +26,7 @@ const ANIMALS = [
   { name: "KOALA", image: koala },
   { name: "LLAMA", image: llama },
   { name: "MOOSE", image: moose },
+  { name: "ZEBRA", image: zebra },
 ];
 
 const animalID = Math.floor(Math.random() * ANIMALS.length);
