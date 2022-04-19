@@ -51,10 +51,26 @@ img {
   padding: 20px;
 }
 
+.completed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .successmessage {
   text-align: center;
   font-size: 30px;
   font-weight: 700;
+}
+
+.share-button {
+  font-size: 20px;
+  border-radius: 10px;
+	border: none;
+	cursor: pointer;
+  color: white;
+  padding: 10px;
+  background-color: rgb(80, 171, 92);
 }
 
 .keyboard {
@@ -88,3 +104,4 @@ img {
     font-size: 18px;
   }
 }
+

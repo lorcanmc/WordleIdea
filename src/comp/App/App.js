@@ -12,6 +12,7 @@ import llama from "../../images/maps/llama.png";
 import moose from "../../images/maps/moose.png";
 import zebra from "../../images/maps/zebra.webp";
 import "./App.css";
+import CompletedContainer from "../CompletedContainer/index.js";
 
 const COLORS = {
   lightGrey: "rgb(220, 220, 220)",
@@ -153,7 +154,11 @@ function App() {
       </div>
 
       <Grid gridFormatting={gridFormatting} />
-      {completed ? <p className="successmessage">CONGRATULATIONS</p> : <></>}
+      {completed ? (
+        <CompletedContainer></CompletedContainer>
+      ) : (
+        <></>
+      )}
       {failed ? (
         <p className="successmessage">
           Unlucky, the answer was {dailyData.word}
