@@ -15,7 +15,7 @@ export default function CompletedContainer({ gridFormatting }) {
         }
       })
     );
-    let copyStr = "Animle Results:";
+    let copyStr = "Animle No. 3";
     tiles.forEach((row) => {
       if (row[0] !== "X") {
         copyStr += "\n" + row.join("");
