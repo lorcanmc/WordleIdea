@@ -155,7 +155,7 @@ function App() {
 
       <Grid gridFormatting={gridFormatting} />
       {completed ? (
-        <CompletedContainer></CompletedContainer>
+        <CompletedContainer gridFormatting={gridFormatting}></CompletedContainer>
       ) : (
         <></>
       )}
