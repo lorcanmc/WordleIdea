@@ -23,10 +23,10 @@ const COLORS = {
 
 const ANIMALS = [
   // { name: "CAMEL", image: camel },
-  { name: "TIGER", image: tiger },
-  { name: "KOALA", image: koala },
-  { name: "LLAMA", image: llama },
-  { name: "MOOSE", image: moose },
+  // { name: "TIGER", image: tiger },
+  // { name: "KOALA", image: koala },
+  // { name: "LLAMA", image: llama },
+  // { name: "MOOSE", image: moose },
   { name: "ZEBRA", image: zebra },
 ];
 
