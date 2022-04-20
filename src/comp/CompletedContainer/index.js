@@ -2,7 +2,7 @@ import React from "react";
 
 export default function CompletedContainer({ gridFormatting }) {
   function copyToClipboard() {
-      alert("Copied")
+    //   alert("Copied")
     const tiles = gridFormatting.map((nested) =>
       nested.map((tile) => {
         if (tile.backgroundColor === "rgb(80, 171, 92)") {
