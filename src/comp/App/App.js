@@ -7,11 +7,11 @@ import Header from "../Header";
 import Keyboard from "../Keyboard/index.js";
 // import camel from "../../images/maps/camel.png";
 // import tiger from "../../images/maps/tiger.png";
-// import koala from "../../images/maps/koala.jpg";
-// import llama from "../../images/maps/llama.png";
+import koala from "../../images/maps/koala.jpg";
+import llama from "../../images/maps/llama.png";
 import moose from "../../images/maps/moose.png";
-// import zebra from "../../images/maps/zebra.webp";
-// import hippo from "../../images/maps/hippo.webp";
+import zebra from "../../images/maps/zebra.webp";
+import hippo from "../../images/maps/hippo.webp";
 import "./App.css";
 import CompletedContainer from "../CompletedContainer/index.js";
 
@@ -25,14 +25,23 @@ const COLORS = {
 const ANIMALS = [
   // { name: "CAMEL", image: camel },
   // { name: "TIGER", image: tiger },
-  // { name: "KOALA", image: koala },
-  // { name: "LLAMA", image: llama },
+  { name: "KOALA", image: koala },
+  { name: "LLAMA", image: llama },
   { name: "MOOSE", image: moose },
-  // { name: "ZEBRA", image: zebra },
-  // { name: "HIPPO", image: hippo },
+  { name: "ZEBRA", image: zebra },
+  { name: "HIPPO", image: hippo },
 ];
 
-const animalID = Math.floor(Math.random() * ANIMALS.length);
+function daysIntoYear() {
+  var now = new Date();
+  var start = new Date(now.getFullYear(), 0, 0);
+  var diff = now - start;
+  var oneDay = 1000 * 60 * 60 * 24;
+  return Math.floor(diff / oneDay);
+}
+
+
+const animalID = daysIntoYear() % ANIMALS.length;
 
 function App() {
   const dailyData = {
@@ -157,7 +166,9 @@ function App() {
 
       <Grid gridFormatting={gridFormatting} />
       {completed ? (
-        <CompletedContainer gridFormatting={gridFormatting}></CompletedContainer>
+        <CompletedContainer
+          gridFormatting={gridFormatting}
+        ></CompletedContainer>
       ) : (
         <></>
       )}
