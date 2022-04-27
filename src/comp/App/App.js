@@ -9,8 +9,8 @@ import Keyboard from "../Keyboard/index.js";
 // import tiger from "../../images/maps/tiger.png";
 // import koala from "../../images/maps/koala.jpg";
 // import llama from "../../images/maps/llama.png";
-// import moose from "../../images/maps/moose.png";
-import zebra from "../../images/maps/zebra.webp";
+import moose from "../../images/maps/moose.png";
+// import zebra from "../../images/maps/zebra.webp";
 // import hippo from "../../images/maps/hippo.webp";
 import "./App.css";
 import CompletedContainer from "../CompletedContainer/index.js";
@@ -27,8 +27,8 @@ const ANIMALS = [
   // { name: "TIGER", image: tiger },
   // { name: "KOALA", image: koala },
   // { name: "LLAMA", image: llama },
-  // { name: "MOOSE", image: moose },
-  { name: "ZEBRA", image: zebra },
+  { name: "MOOSE", image: moose },
+  // { name: "ZEBRA", image: zebra },
   // { name: "HIPPO", image: hippo },
 ];
 
